@@ -3,7 +3,7 @@
 export const Container = ({children}) => {
   return (
     <>
-      <div className="max-w-5xl mx-auto">{children}</div>
+      <div className="max-w-6xl mx-auto font-nunito">{children}</div>
     </>
   )
 }
