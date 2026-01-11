@@ -14,7 +14,7 @@ const Home = () => {
                <div className=" col-span-6">
                       <MidSide/>
                </div>
-               <div className="bg-blue-600 col-span-3">
+               <div className=" col-span-3">
                       <RightSide/>
                </div>
 
