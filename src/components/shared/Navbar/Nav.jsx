@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { NavLink } from "react-router";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
 export const Nav = () => {
-  const { user,handleLogOut } = useContext(AuthContext);
-console.log(user?.photoURL,"user?.photoURL");
+  const { user, handleLogOut } = useContext(AuthContext);
+  console.log(user?.displayName);
   return (
     <>
       <div className="navbar bg-base-100 shadow-sm flex justify-between">
@@ -62,24 +62,35 @@ console.log(user?.photoURL,"user?.photoURL");
           <div className="flex items-center gap-2">
             <div className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                {user?(<img
-                  alt="Tailwind CSS Navbar component"
-                  src={user?.photoURL}
-                />):(<img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />)}
+                {user ? (
+                  <>
+                    <img alt="user" src={user?.photoURL} />
+                  </>
+                ) : (
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  />
+                )}
               </div>
             </div>
+            <p className="text-xl text-black">{user?.displayName}</p>
             <div>
               {user ? (
-                <button onClick={()=>{handleLogOut()}} className="btn btn-warning text-black font-xl font-medium">
+                <button
+                  onClick={() => {
+                    handleLogOut();
+                  }}
+                  className="btn btn-warning text-black font-xl font-medium"
+                >
                   Log out
                 </button>
               ) : (
-                <button className="btn btn-warning text-black font-xl font-medium">
-                  Login
-                </button>
+                <Link to="/login">
+                  <button className="btn btn-warning text-black font-xl font-medium">
+                    Login
+                  </button>
+                </Link>
               )}
             </div>
           </div>

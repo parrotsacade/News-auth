@@ -4,7 +4,7 @@ import img from "../../../../public/images/doremn-pic.webp";
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 const RightSide = () => {
-  const { handleLoginGoogle, user } = useContext(AuthContext);
+  const { handleLoginGoogle, user,handleLoginGithub } = useContext(AuthContext);
   console.log(user);
 
   return (
@@ -15,7 +15,8 @@ const RightSide = () => {
           <button onClick={()=>{handleLoginGoogle()}} className="btn btn-sm bg-gray-800 rounded-md text-white">
             Sign In Google
           </button>
-          <button className="btn btn-sm bg-gray-800 rounded-md text-white">
+          <button onClick={()=>{handleLoginGithub()}} className="btn btn-sm bg-gray-800 rounded-md text-white">
+
             Sign In Github
           </button>
         </div>
